@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unique Value Conversion</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        ::-webkit-scrollbar{
+            display: none;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 5%;
+            width: 100%;
+            height: 80vh;
+        }
+        h1{
+            color: blueviolet;
+        }
+        .container{
+            width: 100%;
+            height: 100%;
+            width: 50%;
+            padding: 20px;
+        }
+        .container input{
+            width: 100%;
+            height: 15%;
+            padding: 10px;
+            outline: none;
+        }
+        .container button{
+            width: 100%;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: blue;
+            font-size: 17px;
+            font-weight: 600;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+        }
+        .container div{
+            height: 50%;
+            padding: 10px;
+            border-radius: 10px;
+            overflow: scroll;
+            display: flex;
+            width: 100%;
+            box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+            margin-top: 20px;
+        }
+        @media screen and (max-width: 700px) {
+            .container{
+                margin-top: 20px;
+                width: 80%;
+            }
+        }
+        @media screen and (max-width: 500px) {
+            .container{
+                width: 95%;
+                padding: 10px;
+            }
+            .container button{
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Convert to Unique Values</h1>
+    <div class="container">
+        <input type="text" id="inputBox" placeholder="Enter values separated by commas">
+        <button onclick="removeDuplicates()">Remove Duplicates</button>
+        <div><h1 id="result"></h1></div>
+    </div>
+    <script>
+        var inputBox = document.getElementById("inputBox");
+        var result = document.getElementById("result");
+
+        function removeDuplicates() {
+            var data = inputBox.value;
+            var items = data.split(','); 
+            var uniqueItems = [...new Set(items)]; 
+            var uniqueData = uniqueItems.join(','); 
+            result.textContent = uniqueData;
+            console.log(uniqueData);
+        }
+    </script>
+</body>
+</html>
